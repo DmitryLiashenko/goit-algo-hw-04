@@ -11,6 +11,6 @@ def get_cats_info(path = None):                           # СОЗДАЕМ ФУ�
                 separator = line.split(',')               # РАЗДЕЛЯЕМ ТЕКСТ ПО ПАТЕРНУ ","
                 list_cats.append({'id': separator[0], 'name' : separator[1], 'age' : separator[2]}) # ДОБАВЛЯЕМ В СЛОВАРЬ НУЖНЫЕ ДАННЫЕ
         return list_cats                                                                            # ВОЗВРАЩАЕМ СПИСОК СЛОВАРЕЙ
-    except Exception as Eror:                                                                       # КОНЕЦ БЛОКА ОШИБОК
-        print (f'Somthing bat {Eror}')                                                              # СООБЩАЕМ ОБ ОШИБКЕ
+    except Exception as Error:                                                                      # КОНЕЦ БЛОКА ОШИБОК
+        print (f'something bad {Error}')                                                            # СООБЩАЕМ ОБ ОШИБКЕ
 print(get_cats_info(r'D:\IT\Repositorys\goit-algo-hw-04\GoIt-hw-4-2\cats.txt.txt'))                 # ТЕСТ
