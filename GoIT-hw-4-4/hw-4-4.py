@@ -1,12 +1,14 @@
+                               # ФУНКЦИИ ДЛЯ РАБОТЫ ОСНОВНОГО КОДА
+
 def parse_input(user_input):            # ФУНКЦИЯ ПАРСЕРА КОМАНД           
     cmd, *args = user_input.split()     # РАЗДЕЛЯЕМ ВВОД НА КОМАНДУ И АРГУМЕНТЫ
-    cmd = cmd.strip().lower()           # ПРИВОДИМ В НИЖНИЙ РЕГИСТР И УДАЛЯЕМ ЛИШНИИ ПРОБЕЛЫ
+    cmd = cmd.strip().lower()           # ПРИВОДИМ В НИЖНИЙ РЕГИСТР И УДАЛЯЕМ ЛИШНИИ ПРОБЕЛЫ КОМАНДЫ
     return cmd, *args                   # ВОЗВРАЩАЕМ КОМАНДУ И СПИСОК АРГУМЕНТОВ
 
 def add_contact(args, contacts):        # ФУНКЦИЯ ДОБАВЛЕНИЯ КОНТАКТОВ
     name, phone = args                  # ПРИСВАИВАЕМ АРГУМЕНТЫ ИМЕНИ И ТЕЛЕФОНУ
     contacts[name] = phone              # ЗАНОСИМ В СЛОВАРЬ ПО КЛЮЧЮ ТЕЛЕФОН
-    return "Contact added."             #
+    return "Contact added."             
 
 def change_contact(args, contacts):     # ФУНКЦИЯ ИЗМЕНЕНИЯ КОНТАКТА
     name, phone = args
@@ -19,33 +21,33 @@ def show_phone(args, contacts):         # ФУНКЦИЯ ПОКАЗЫВАЕТ Т
     name = args
     for key, value in contacts.items(): 
         if name == key:                 
-            return value                # ВОЗВРАЩАЕМ ЗНАЧЕНИЕ НАЙДЕНОЕ ПО КЛЮЧУ
+            return None                 # ВОЗВРАЩАЕМ ЗНАЧЕНИЕ НАЙДЕНОЕ ПО КЛЮЧУ
     
 
-def show_all(contacts=None):       # ФУНКЦИЯ ВЫВОДИТ ВСЕ КОНТАКТЫ В СЛОВАРЕ(ДОБАВИТЬ \n)
-    return contacts
+def show_all(contacts=None):            # ФУНКЦИЯ ВЫВОДИТ ВСЕ КОНТАКТЫ В СЛОВАРЕ(ДОБАВИТЬ \n)
+    return contacts                     # ВОЗВРАЩАЕМ СЛОВАРЬ В ФУНКЦИЮ
 def main():
-    contacts = {}
-    print("Welcome to the assistant bot!")
+    contacts = {}                                # СОЗДВЕМ ПУСТОЙ СЛОВАРЬ
+    print("Welcome to the assistant bot!")       # ПРИВЕТСТВИЕ
     while True:
         user_input = input("Enter a command: ")  # ПОЛУЧАЕМ КОМАНДУ
         command, *args = parse_input(user_input)
 
-        if command in ["close", "exit"]:         # БЛОК ВЫХОДА
+        if command in ["close", "exit"]:           # БЛОК ВЫХОДА ИЗ БОТА
             print("Good bye!")
             break 
-        elif command == "hello":                 # ПРИВЕТСТВИЕ
+        elif command == "hello":                   # БЛОК ЗАПРОСА КОМАНДЫ
             print("How can I help you?")
-        elif command == "add":                   # ДОБАВЛЕНИЕ КОНТАКТА
-            print(add_contact(args, contacts))
-        elif command == "change":                # СМЕНА КОНТАКТА
-             print(change_contact(args, contacts))
-        elif command == "phone":                 # ПОКАЗЫВАЕТ КОНТАКТ ПО ИМЕНИ
-            print(show_phone(args, contacts))
-        elif command == "all":                   # ПОКАЗЫВВАЕМ ВЕСЬ СЛОВАРЬ
-            print(show_all(contacts)) 
-        else:                                    # СООБЩАЕМ О НЕ ПРАВИЛЬНОЙ КОМАНДЕ
-            print("Invalid command.")
+        elif command == "add":                     # ДОБАВЛЕНИЕ КОНТАКТА
+            print(add_contact(args, contacts))     # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
+        elif command == "change":                  # СМЕНА КОНТАКТА
+             print(change_contact(args, contacts)) # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
+        elif command == "phone":                   # ПОКАЗЫВАЕТ КОНТАКТ ПО ИМЕНИ
+            print(show_phone(args, contacts))      # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
+        elif command == "all":                     # ПОКАЗЫВВАЕМ ВЕСЬ СЛОВАРЬ
+            print(show_all(contacts))              # ПЕРЕДАЕМ ФУНКЦИИ СЛОВАРЬ
+        else:                                      
+            print("Invalid command.")              # СООБЩАЕМ О НЕ ПРАВИЛЬНОЙ КОМАНДЕ
 
-if __name__ == "__main__":
+if __name__ == "__main__":                         # ПРОВЕРКА ЗАПУЩЕННА ЛИ ГЛАВНЫЙ КОД, А НЕ МОДУЛЬ
     main()
