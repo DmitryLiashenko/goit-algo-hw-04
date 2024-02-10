@@ -21,7 +21,7 @@ def show_phone(args, contacts):         # ФУНКЦИЯ ПОКАЗЫВАЕТ Т
     name = args
     for key, value in contacts.items(): 
         if name == key:                 
-            return None                 # ВОЗВРАЩАЕМ ЗНАЧЕНИЕ НАЙДЕНОЕ ПО КЛЮЧУ
+            return contacts[key]                 # ВОЗВРАЩАЕМ ЗНАЧЕНИЕ НАЙДЕНОЕ ПО КЛЮЧУ
     
 
 def show_all(contacts=None):            # ФУНКЦИЯ ВЫВОДИТ ВСЕ КОНТАКТЫ В СЛОВАРЕ(ДОБАВИТЬ \n)
@@ -43,7 +43,7 @@ def main():
         elif command == "change":                  # СМЕНА КОНТАКТА
              print(change_contact(args, contacts)) # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
         elif command == "phone":                   # ПОКАЗЫВАЕТ КОНТАКТ ПО ИМЕНИ
-            print(show_phone(args, contacts))      # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
+            print(show_phone(args[0], contacts))      # ПЕРЕДАЕМ ФУНКЦИИ АРГУМЕНТЫ И СЛОВАРЬ
         elif command == "all":                     # ПОКАЗЫВВАЕМ ВЕСЬ СЛОВАРЬ
             print(show_all(contacts))              # ПЕРЕДАЕМ ФУНКЦИИ СЛОВАРЬ
         else:                                      
