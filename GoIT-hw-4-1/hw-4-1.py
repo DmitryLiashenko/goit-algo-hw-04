@@ -1,4 +1,4 @@
-                              # ФУНКЦЫЯ ДЛЯ РАСЧЕТА СУММЫ И СРЕДНЕЙ ЗП
+# ФУНКЦЫЯ ДЛЯ РАСЧЕТА СУММЫ И СРЕДНЕЙ ЗП
 
 from pathlib import Path                              # Импортируем метод для работы с путем к фалам
 def total_salary(path = None): 
@@ -19,4 +19,4 @@ def total_salary(path = None):
         return payroll                                                             # ВОЗВРАЩАЕМ СПИСОК В ФУНКЦИЮ
     except Exception as Error:                                                     # КОНЕЦ БЛОКА ОБРАБОТКИ ОШИБОК
         print (f'something bad {Error}')                                           # ВЫВОДИМ СООБЩЕНИЕ ОБ ОШИБКЕ                      
-print(total_salary(r'D:\IT\Repositorys\goit-algo-hw-04\GoIT-hw-4-1\file1.txt.txt')) # ТЕСТ
+print(total_salary(r"goit-algo-hw-04/GoIT-hw-4-1/file1.txt.txt"))  # ТЕСТ
